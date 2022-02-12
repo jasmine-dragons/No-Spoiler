@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:regular,bold,italic&subset=latin,latin-ext');
+
+.App {
+  text-align: center;
+  background-image: url('./assets/background.svg');
+  height: 100vh;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  overflow: hidden; /* app body overflows for some reason ask steven */
+}
+
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+}
+
+.App-header p {
+  color: white;
+  font-size: 28px;
+  margin: 0 2rem 0 0;
+}
+
+.App-body {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.App-left {
+  width: 50%;
+}
+
+.search-create-div {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #9A95FF;
+  width: 75%;
+  margin: 0 0.5rem 0.5rem 1rem;
+  padding: 0.5rem;
+  filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+}
+
+.search input {
+  background: #9A95FF;
+  border: none;
+  color: white;
+  width: 100%;
+  height: 100%;
+  margin-left: 0.25rem;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+}
+
+.create {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #9A95FF;
+  width: 25%;
+  margin: 0 1rem 0.5rem 0.5rem;
+  padding: 0.5rem;
+  filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+}
+
+.post {
+  background: #FFFFE7;
+  color: #0A0329;
+  text-align: left;
+  margin: 0.5rem 1rem;
+  padding: 0 0.25rem;
+  filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+}
+
+.post p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.post h1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  margin: 0;
+}
+
+.App-right {
+  background: #FFFFE7;
+  width: 50%;
+  height: 100%;
+  filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+}
