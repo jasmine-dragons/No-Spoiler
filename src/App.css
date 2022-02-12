@@ -75,27 +75,6 @@
     filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
 }
 
-.post {
-    background: #FFFFE7;
-    color: #0A0329;
-    text-align: left;
-    margin: 0.5rem 1rem;
-    padding: 0 0.25rem;
-    filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
-}
-
-.post p {
-    font-size: 18px;
-    margin: 0;
-}
-
-.post h1 {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    margin: 0;
-}
-
 .App-right {
     background: #FFFFE7;
     width: 50%;
@@ -106,45 +85,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.post-body {
-    margin: 0.5rem;
-}
-
-.post-body p {
-    font-size: 18px;
-    margin: 0;
-}
-
-.post-body h1 {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    margin: 0;
-}
-
-.post-body h2 {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    margin: 0;
-}
-
-.comment {
-    margin: 0.5rem;
-}
-
-.comment p {
-    font-size: 18px;
-    margin: 0;
-}
-
-.comment h2 {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    margin: 0;
 }
 
 .message {

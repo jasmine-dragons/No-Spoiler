@@ -2,6 +2,9 @@ import logo from './assets/logo.svg';
 import search from './assets/search.svg';
 import chat from './assets/chat-bubble.svg';
 import './App.css';
+import Comment from './components/Comment';
+import LargePost from './components/LargePost';
+import Post from './components/Post';
 
 function App() {
   return (
@@ -22,22 +25,12 @@ function App() {
 						Create Post
 					</div>
 				</div>
-				<div className="post">
-					<p>username</p>
-					<h1>Title</h1>
-				</div>
+				<Post username="Rinsworth" title="Your Name" />
         	</div>
 			<div className="App-right">
                 <div className="post-comment-div">
-                    <div className="post-body">
-                        <p>username</p>
-                        <h1>Title</h1>
-                        <h2>Body</h2>
-                    </div>
-                    <div className="comment">
-                        <p>username</p>
-                        <h2>Comment</h2>
-                    </div>
+                    <LargePost username="Rinsworth" title="Your Name" body="I liked Your Name" />
+                    <Comment username="sqirley" comment="that movie was cool"/>
                 </div>
                 <div className="message">
                     <input type="text" placeholder="Comment Here" />
