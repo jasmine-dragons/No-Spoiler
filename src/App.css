@@ -1,103 +1,166 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:regular,bold,italic&subset=latin,latin-ext');
 
 .App {
-  text-align: center;
-  background-image: url('./assets/background.svg');
-  height: 100vh;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  overflow: hidden; /* app body overflows for some reason ask steven */
+    text-align: center;
+    background-image: url('./assets/background.svg');
+    height: 100vh;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    /* overflow: hidden; app body overflows for some reason ask steven */
 }
 
 .App-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
 }
 
 .App-header p {
-  color: white;
-  font-size: 28px;
-  margin: 0 2rem 0 0;
+    color: white;
+    font-size: 28px;
+    margin: 0 2rem 0 0;
 }
 
 .App-body {
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 161px);
 }
 
 .App-left {
-  width: 50%;
+    width: 50%;
 }
 
 .search-create-div {
-  color: white;
-  display: flex;
-  justify-content: space-between;
+    color: white;
+    display: flex;
+    justify-content: space-between;
 }
 
 .search {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background: #9A95FF;
-  width: 75%;
-  margin: 0 0.5rem 0.5rem 1rem;
-  padding: 0.5rem;
-  filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #9A95FF;
+    width: 75%;
+    margin: 0 0.5rem 0.5rem 1rem;
+    padding: 0.5rem;
+    filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
 }
 
 .search input {
-  background: #9A95FF;
-  border: none;
-  color: white;
-  width: 100%;
-  height: 100%;
-  margin-left: 0.25rem;
+    background: #9A95FF;
+    border: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    margin-left: 0.25rem;
+    font-size: 14px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white;
+    color: white;
 }
 
 .create {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background: #9A95FF;
-  width: 25%;
-  margin: 0 1rem 0.5rem 0.5rem;
-  padding: 0.5rem;
-  filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #9A95FF;
+    width: 25%;
+    margin: 0 1rem 0.5rem 0.5rem;
+    padding: 0.5rem;
+    filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
 }
 
 .post {
-  background: #FFFFE7;
-  color: #0A0329;
-  text-align: left;
-  margin: 0.5rem 1rem;
-  padding: 0 0.25rem;
-  filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+    background: #FFFFE7;
+    color: #0A0329;
+    text-align: left;
+    margin: 0.5rem 1rem;
+    padding: 0 0.25rem;
+    filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
 }
 
 .post p {
-  font-size: 18px;
-  margin: 0;
+    font-size: 18px;
+    margin: 0;
 }
 
 .post h1 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 36px;
-  margin: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    margin: 0;
 }
 
 .App-right {
-  background: #FFFFE7;
-  width: 50%;
-  height: 100%;
-  filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+    background: #FFFFE7;
+    width: 50%;
+    height: 100%;
+    filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+    margin-right: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post-body {
+    margin: 0.5rem;
+}
+
+.post-body p {
+    font-size: 18px;
+    margin: 0;
+}
+
+.post-body h1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    margin: 0;
+}
+
+.post-body h2 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    margin: 0;
+}
+
+.comment {
+    margin: 0.5rem;
+}
+
+.comment p {
+    font-size: 18px;
+    margin: 0;
+}
+
+.comment h2 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    margin: 0;
+}
+
+.message {
+    background: #9A95FF;
+    width: 95%;
+    margin: 0 0.25rem 1rem 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.message input {
+    background: #9A95FF;
+    border: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    padding: 0.25rem;
 }

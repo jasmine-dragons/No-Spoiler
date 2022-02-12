@@ -28,7 +28,20 @@ function App() {
 				</div>
         	</div>
 			<div className="App-right">
-				This is the right side
+                <div className="post-comment-div">
+                    <div className="post-body">
+                        <p>username</p>
+                        <h1>Title</h1>
+                        <h2>Body</h2>
+                    </div>
+                    <div className="comment">
+                        <p>username</p>
+                        <h2>Comment</h2>
+                    </div>
+                </div>
+                <div className="message">
+                    <input type="text" placeholder="Comment Here" />
+                </div>
 			</div>
       	</div>
     </div>
