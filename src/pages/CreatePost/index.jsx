@@ -22,6 +22,8 @@ const CreatePost = () => {
         })
         .then(response => response.json())
         .then(data => console.log(data));
+
+        window.location.href = "/";
     }
   	return (
 		<div className="CreatePost">
@@ -38,7 +40,7 @@ const CreatePost = () => {
 				</div>
 
 				<div className="buttons">
-					<button>Cancel</button>
+					<button onClick={() => window.location.href = "/"}>Cancel</button>
 					<button onClick={submitPost}>Submit</button>
 				</div>
 			</div>

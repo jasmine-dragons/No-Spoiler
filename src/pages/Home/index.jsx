@@ -29,6 +29,19 @@ function Home() {
         }
     }
 
+    fetch('https://localhost/5000', {
+        method: "GET",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+
     return (
         <div className="App">
         <header className="App-header">
@@ -42,7 +55,7 @@ function Home() {
                             <img src={search} alt="search"/>
                             <input type="text" placeholder="Search" />
                         </div>
-                        <div className="create">
+                        <div className="create" onClick={() => {window.location.href = "/create-post"}}>
                             <img src={chat} alt="chat"/>
                             Create Post
                         </div>
