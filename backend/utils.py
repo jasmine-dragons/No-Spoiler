@@ -35,8 +35,8 @@ import tensorflow_hub as hub
 np.random.seed(0)
 
 # if(0):
-train = pd.read_csv('train.csv')
-cv = pd.read_csv('cv.csv')
+train = pd.read_csv('./data/train.csv')
+cv = pd.read_csv('./data/cv.csv')
 train = pd.concat([train, cv], ignore_index=True)
 
 train_text = (train['book_title'].map(str) + ' ~~~ ' + train['sentence'].map(str)).to_numpy()
