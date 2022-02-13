@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # db = g._database = PyMongo(current_app).db
 
-client = MongoClient('')
+client = MongoClient('mongodb+srv://username:christopher@cluster0.4oqji.mongodb.net/Cluster0?retryWrites=true&w=majority')
 
 db = client.test_database
 
@@ -36,6 +36,10 @@ def comment_post(data):
     return db.comments.insert_one(comment_doc)
     # return "comment created"
 
+@app.route('/signin')
+def signin(data):
+    return "signing in"
+
 @app.route('/')
-def hello_world():
+def get_posts():
     return "<p>Hello, World!</p>"
