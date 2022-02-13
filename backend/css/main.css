@@ -1,0 +1,99 @@
+form_main {
+      width: 100%;
+  }
+  .form_main h4 {
+      font-family: roboto;
+      font-size: 20px;
+      font-weight: 300;
+      margin-bottom: 15px;
+      margin-top: 20px;
+      text-transform: uppercase;
+  }
+  .heading {
+      border-bottom: 1px solid #fcab0e;
+      padding-bottom: 9px;
+      position: relative;
+  }
+  .heading span {
+      background: #9e6600 none repeat scroll 0 0;
+      bottom: -2px;
+      height: 3px;
+      left: 0;
+      position: absolute;
+      width: 75px;
+  }
+  .form {
+      border-radius: 7px;
+      padding: 6px;
+  }
+  .txt[type="text"] {
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      padding: 10px 0 10px 5px;
+      width: 100%;
+  }
+  .txt_3[type="text"] {
+      margin: 10px 0 0;
+      padding: 10px 0 10px 5px;
+      width: 100%;
+  }
+  .txt2[type="submit"] {
+      background: #242424 none repeat scroll 0 0;
+      border: 1px solid #4f5c04;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 16px;
+      font-style: normal;
+      line-height: 35px;
+      margin: 10px 0;
+      padding: 0;
+      text-transform: uppercase;
+      width: 30%;
+  }
+  .txt2:hover {
+      background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+      color: #5793ef;
+      transition: all 0.5s ease 0s;
+  }
+
+  .notice {
+      padding: 15px;
+      background-color: #fafafa;
+      border-left: 6px solid #7f7f84;
+      margin-bottom: 10px;
+      -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+         -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+              box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+  }
+  .notice-sm {
+      padding: 10px;
+      font-size: 80%;
+  }
+  .notice-lg {
+      padding: 35px;
+      font-size: large;
+  }
+  .notice-success {
+      border-color: #80D651;
+  }
+  .notice-success>strong {
+      color: #80D651;
+  }
+  .notice-info {
+      border-color: #45ABCD;
+  }
+  .notice-info>strong {
+      color: #45ABCD;
+  }
+  .notice-warning {
+      border-color: #FEAF20;
+  }
+  .notice-warning>strong {
+      color: #FEAF20;
+  }
+  .notice-danger {
+      border-color: #d73814;
+  }
+  .notice-danger>strong {
+      color: #d73814;
+  }
