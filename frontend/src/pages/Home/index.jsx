@@ -32,7 +32,7 @@ function Home() {
     }
 
     useEffect(() => {
-        fetch(API_URL + '/getposts')
+        fetch(API_URL + '/posts')
         .then(response => response.json())
         .then(data => {console.log(data); setPostList(data)});
     }, []);
