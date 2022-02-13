@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask, request
 from utils import spoiler_value
 from flask import current_app, g
 from werkzeug.local import LocalProxy
@@ -8,9 +8,9 @@ app = Flask(__name__)
 
 # db = g._database = PyMongo(current_app).db
 
-client = MongoClient('mongodb+srv://username:christopher@cluster0.4oqji.mongodb.net/Cluster0?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://user:christopher@cluster0.4oqji.mongodb.net/Cluster0?retryWrites=true&w=majority')
 
-db = client.test_database
+db = client.user_inputs
 
 # will have a json obj as param
 @app.route('/create')
@@ -36,19 +36,34 @@ def comment_post(data):
     return db.comments.insert_one(comment_doc)
     # return "comment created"
 
-@app.route('/get_posts')
-def get_posts(data):
+# will have a json obj as param
+@app.route('/test')
+def test_spoil():
+    '''
+    test_spoil()
+    '''
+    text = request.args.get('text')
+    val = spoiler_value(text)
+    return str(val)
+    # return "post created"
+
+
+@app.route('/getposts')
+def getposts():
     """
     Returns list of all posts in the database.
     """
-    return list(db.posts.find())
+    # print(db.posts.find({}))
+    return str(list(db.posts.find({})))
 
 @app.route('/signin')
-def signin(username, password):
+def signin():
     """
     Returns list of all posts in the database.
     """
-    return "success"
+    username = request.args.get('username')
+    password = request.args.get('password')
+    return "success: " + str(username) + " " + str(password)
 
 @app.route('/')
 def get_posts():
