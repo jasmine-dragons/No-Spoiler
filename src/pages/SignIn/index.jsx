@@ -21,6 +21,8 @@ const CreatePost = () => {
         .then(response => response.json())
         .then(data => console.log(data));
 
+        localStorage.setItem("username", username);
+
         window.location.href = "/";
     }
   	return (

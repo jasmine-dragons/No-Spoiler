@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # db = g._database = PyMongo(current_app).db
 
-client = MongoClient('')
+client = MongoClient('mongodb+srv://username:christopher@cluster0.4oqji.mongodb.net/Cluster0?retryWrites=true&w=majority')
 
 db = client.test_database
 
@@ -43,14 +43,13 @@ def get_posts(data):
     """
     return list(db.posts.find())
 
-@app.route('/sign_in')
-def sign_in(username, password):
+@app.route('/signin')
+def signin(username, password):
     """
     Returns list of all posts in the database.
     """
     return "success"
 
-
 @app.route('/')
-def hello_world():
+def get_posts():
     return "<p>Hello, World!</p>"

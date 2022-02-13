@@ -9,7 +9,6 @@ import {useState} from 'react';
 
 function Home() {
     const [comment, setComment] = useState("");
-    const [username, setUsername] = useState("");
     const [postList, setPostList] = useState(null);
     const [selectedPost, setSelectedPost] = useState(null);
 
@@ -22,7 +21,7 @@ function Home() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    username: username,
+                    username: localStorage.getItem("username"),
                     comment: comment
                 })
             })
@@ -53,9 +52,7 @@ function Home() {
                             Create Post
                         </div>
                     </div>
-                    <Post username="Rinsworth" title="Your Name"/>
-                    <Post username="sqirley" title="Haikyuu"/>
-                    {postList
+                    {postList && postList
                     .map((post, index) => (
                     <Post
                         username={post.username}
@@ -67,7 +64,7 @@ function Home() {
                 </div>
                 {selectedPost && <div className="App-right">
                     <div className="post-comment-div">
-                        <LargePost username={username} title={selectedPost.title} body={selectedPost.content} spoiler={selectedPost.isSpoiler}/>
+                        <LargePost username={localStorage.getItem("username")} title={selectedPost.title} body={selectedPost.description} spoiler={selectedPost.isSpoiler}/>
                         <div className="blank"></div>
                         {/* <Comment username="sqirley" comment="that movie was cool"/> */}
                         {selectedPost.comments.map((comment, index) => (

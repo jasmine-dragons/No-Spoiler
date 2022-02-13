@@ -3,7 +3,6 @@ import logo from '../../assets/logo.svg';
 import { useState } from "react";
 
 const CreatePost = () => {
-    const [username, setUsername] = useState("");
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
@@ -15,7 +14,7 @@ const CreatePost = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                username: username,
+                username: localStorage.getItem("username"),
                 title: title,
                 content: content
             })
@@ -33,7 +32,7 @@ const CreatePost = () => {
 			</header>
 			<div className="CreatePost-body">
 				<div className="post">
-					<p>{username}</p>
+					<p>{localStorage.getItem("username")}</p>
 					<input className="title" type="text" placeholder="Put Title Here" value={title} onChange={e => setTitle(e.target.value)}/>
 					<div className="blank"></div>
 					<textarea className="content" placeholder="Body of Content" value={content} onChange={e => setContent(e.target.value)}/>
