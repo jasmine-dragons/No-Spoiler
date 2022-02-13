@@ -1,6 +1,6 @@
 import "./style.less"
 
-const LargePost = ({username, title, body}) => {
+const LargePost = ({username, title, body, spoiler}) => {
     return(
         <div className="post-body">
             <p>{username}</p>

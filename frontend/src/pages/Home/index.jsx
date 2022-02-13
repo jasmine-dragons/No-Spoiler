@@ -6,6 +6,7 @@ import Comment from '../../components/Comment';
 import LargePost from '../../components/LargePost';
 import Post from '../../components/Post';
 import {useState} from 'react';
+import { API_URL } from '../../config';
 
 function Home() {
     const [comment, setComment] = useState("");
@@ -14,7 +15,7 @@ function Home() {
 
     const checkSubmission = (e) => {
         if (e.key === 'Enter') {
-            fetch('https://localhost/5000/comment', {
+            fetch(API_URL + '/comment', {
                 method: "POST",
                 headers: {
                     Accept: "application/json",
@@ -30,7 +31,7 @@ function Home() {
         }
     }
 
-    fetch('https://localhost/5000')
+    fetch(API_URL + '/getposts')
     .then(response => response.json())
     .then(data => setPostList(data));
 
@@ -55,7 +56,7 @@ function Home() {
                     {postList && postList
                     .map((post, index) => (
                     <Post
-                        username={post.username}
+                        username={post.author}
                         title={post.title}
                         onClick={() => {setSelectedPost(post)}}
                         selected={post.uuid === selectedPost.uuid}
@@ -64,7 +65,7 @@ function Home() {
                 </div>
                 {selectedPost && <div className="App-right">
                     <div className="post-comment-div">
-                        <LargePost username={localStorage.getItem("username")} title={selectedPost.title} body={selectedPost.description} spoiler={selectedPost.isSpoiler}/>
+                        <LargePost username={selectedPost.author} title={selectedPost.title} body={selectedPost.description} spoiler={selectedPost.isSpoiler}/>
                         <div className="blank"></div>
                         {/* <Comment username="sqirley" comment="that movie was cool"/> */}
                         {selectedPost.comments.map((comment, index) => (
