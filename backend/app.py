@@ -22,8 +22,8 @@ def create_post(data):
     val = spoiler_value(data.description)
     if val >= 0.3:
         val['spoiler'] = True
-    post_doc = {'username' : data.username, 'description' : data.description, 'comments' : data.comments}
-    return db.comments.insert_one(post_doc)
+    post_doc = {'username' : data.username, 'title' : data.title, 'description' : data.description, 'comments' : data.comments}
+    return db.posts.insert_one(post_doc)
     # return "post created"
 
 # will have a json obj as param
@@ -32,9 +32,24 @@ def comment_post(data):
     val = spoiler_value(data.description)
     if val >= 0.3:
         val['spoiler'] = True
-    comment_doc = {'username' : data.username, 'comment' : data.comment, 'spoiler' : val['spoiler']}
+    comment_doc = {'username' : data.username, 'content' : data.content, 'spoiler' : val['spoiler']}
     return db.comments.insert_one(comment_doc)
     # return "comment created"
+
+@app.route('/get_posts')
+def get_posts(data):
+    """
+    Returns list of all posts in the database.
+    """
+    return list(db.posts.find())
+
+@app.route('/sign_in')
+def sign_in(username, password):
+    """
+    Returns list of all posts in the database.
+    """
+    return "success"
+
 
 @app.route('/')
 def hello_world():
