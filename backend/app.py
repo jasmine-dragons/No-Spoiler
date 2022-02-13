@@ -38,7 +38,7 @@ def create_post(data):
     return db.posts.insert_one(post_doc)
     # return "post created"
 
-@app.route('/post/<uuid: post>/comment', methods=['POST'])
+@app.route('/post/<post>/comment', methods=['POST'])
 def create_comment(post, data):
     curr_post = db.posts.find(post)
 
