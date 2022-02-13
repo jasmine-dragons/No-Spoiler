@@ -27,7 +27,7 @@ function Home() {
                         </div>
                     </div>
                     <Post username="Rinsworth" title="Your Name"/>
-            <Post username="sqirley" title="Haikyuu"/>
+                    <Post username="sqirley" title="Haikyuu"/>
                 </div>
                 <div className="App-right">
                     <div className="post-comment-div">
