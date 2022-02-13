@@ -22,12 +22,14 @@ const CreatePost = () => {
         })
         .then(response => response.json())
         .then(data => console.log(data));
+
+        window.location.href = "/";
     }
   	return (
 		<div className="CreatePost">
 			<header className="CreatePost-header">
 				<img src={logo} alt="logo"/>
-				<p>Logout</p>
+				<p onClick={() => {window.location.href = "/signin"}}>Logout</p>
 			</header>
 			<div className="CreatePost-body">
 				<div className="post">
@@ -38,7 +40,7 @@ const CreatePost = () => {
 				</div>
 
 				<div className="buttons">
-					<button>Cancel</button>
+					<button onClick={() => window.location.href = "/"}>Cancel</button>
 					<button onClick={submitPost}>Submit</button>
 				</div>
 			</div>

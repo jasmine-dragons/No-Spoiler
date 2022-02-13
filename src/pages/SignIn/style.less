@@ -1,0 +1,98 @@
+.SignIn {
+  text-align: center;
+  background-image: url('../../assets/background.svg');
+  height: 100vh;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  /* overflow: hidden; app body overflows for some reason ask steven */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignIn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+}
+
+.SignIn-body {
+  width: 60%;
+  height: 75%;
+  background: url("../../assets/post-it-background.svg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #0A0329;
+}
+
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  height: calc(35%);
+  width: 100%;
+  margin: 0.5rem 0.5rem 0.5rem 1rem;
+  p {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 36px;
+      line-height: 48px;
+      margin: 0.25rem 0.25rem;
+    }
+
+    input {
+        background: rgba(0,0,0,0);
+        color: #0A0329;
+        width: 50%;
+        margin: 0.25rem;
+        border: none;
+    }
+
+    ::placeholder {
+      color: #0A0329;
+      font-style: italic;
+    }
+}
+
+.username {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  margin: 0;
+  line-height: 48px;
+}
+
+.blank {
+  height: 48px;
+}
+
+.password {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  margin: 0;
+  line-height: 48px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  button {
+      margin: 0 0.5rem 0 2rem;
+      color: white;
+      background: #9A95FF;
+      border: none;
+      height: 48px;
+      padding: 1rem;
+      font-size: 14px;
+      filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
+  }
+}
