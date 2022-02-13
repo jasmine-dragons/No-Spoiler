@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:regular,bold,italic&subset=latin,latin-ext');
-
 .App {
     text-align: center;
-    background-image: url('./assets/background.svg');
+    background-image: url('../../assets/background.svg');
     height: 100vh;
     font-family: Poppins;
     font-style: normal;
@@ -26,7 +24,7 @@
 .App-body {
     display: flex;
     justify-content: space-between;
-    height: calc(100% - 161px);
+    height: calc(100% - 161px - 32px);
 }
 
 .App-left {
@@ -60,10 +58,6 @@
     font-size: 14px;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
-}
-
 .create {
     display: flex;
     justify-content: space-evenly;
@@ -76,7 +70,7 @@
 }
 
 .App-right {
-    background: #FFFFE7;
+    background: url("../../assets/post-it-background.svg");
     width: 50%;
     height: 100%;
     filter: drop-shadow(-4px 4px 4px rgba(10, 3, 41, 0.53));
@@ -89,7 +83,7 @@
 
 .message {
     background: #9A95FF;
-    width: 95%;
+    width: calc(100% - 0.75rem);
     margin: 0 0.25rem 1rem 0.5rem;
     display: flex;
     justify-content: center;
@@ -103,4 +97,8 @@
     height: 100%;
     font-size: 14px;
     padding: 0.25rem;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
 }

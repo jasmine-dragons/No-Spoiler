@@ -1,8 +1,9 @@
 import "./style.less";
 
-const Post = ({username, title}) => {
+const Post = ({username, title, selected}) => {
+
     return (
-        <div className="post">
+        <div className={`post-component ${selected ? "selected" : ""}`}>
             <p>{username}</p>
             <h1>{title}</h1>
         </div>

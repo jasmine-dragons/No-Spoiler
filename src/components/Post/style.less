@@ -1,5 +1,5 @@
-.post {
-    background: #FFFFE7;
+.post-component {
+    background: url("../../assets/post-it-background.svg");
     color: #0A0329;
     text-align: left;
     margin: 0.5rem 1rem;
@@ -8,13 +8,19 @@
 
     p {
         font-size: 18px;
-        margin: 0;
+        margin: 0 1rem;
+        line-height: 48px;
     }
 
     h1 {
+        margin: 0 1rem;
         font-style: normal;
         font-weight: normal;
         font-size: 36px;
-        margin: 0;
+        line-height: 48px;
+    }
+
+    &.selected {
+      filter: drop-shadow(-4px 4px 4px rgba(255, 255, 255, 0.53));
     }
 }
