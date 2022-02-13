@@ -1,12 +1,12 @@
 import logo from '../../assets/logo.svg';
 import search from '../../assets/search.svg';
 import chat from '../../assets/chat-bubble.svg';
-import './App.css';
-import Comment from '../../components/Comment';
-import LargePost from '../../components/LargePost';
-import Post from '../../components/Post';
+import './style.less';
+import Comment from './components/Comment';
+import LargePost from './components/LargePost';
+import Post from './components/Post';
 
-function App() {
+function Home() {
   return (
     <div className="App">
 		<header className="App-header">
