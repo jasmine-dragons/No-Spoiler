@@ -1,8 +1,16 @@
 from flask import Flask 
 from utils import spoiler_value
+from flask import current_app, g
+from werkzeug.local import LocalProxy
+# from flask_pymongo import PyMongo
+from pymongo import MongoClient
 app = Flask(__name__)
 
-db = g._database = PyMongo(current_app).db
+# db = g._database = PyMongo(current_app).db
+
+client = MongoClient('')
+
+db = client.test_database
 
 # will have a json obj as param
 @app.route('/create')
