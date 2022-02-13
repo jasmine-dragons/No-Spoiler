@@ -63,7 +63,7 @@ function Home() {
                         username={post.author}
                         title={post.title}
                         onClick={() => {setSelectedPost(post)}}
-                        selected={post.uuid === selectedPost.uuid}
+                        selected={selectedPost && post["_id"]["$oid"] === selectedPost["_id"]["$oid"]}
                     />
                     )})}
                 </div>

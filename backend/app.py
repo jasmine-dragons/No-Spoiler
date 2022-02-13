@@ -31,13 +31,16 @@ def create_post(data):
     # return "post created"
 
 # will have a json obj as param
-@app.route('/comment')
-def comment_post(data):
-    val = spoiler_value(data.description)
+@app.route('/comment', methods=['POST'])
+def comment_post():
+    data = request.get_json()
+    val = spoiler_value(data.get("content"))
+    spoil = False
     if val >= 0.3:
-        val['spoiler'] = True
-    comment_doc = {'username' : data.username, 'content' : data.content, 'spoiler' : val['spoiler']}
-    return db.comments.insert_one(comment_doc)
+        spoil = True
+    comment_doc = {'username' : data.get("username"), 'content' : data.get("content"), 'spoiler' : spoil}
+    result = db.comments.insert_one(comment_doc)
+    return str(result.inserted_id)
     # return "comment created"
 
 # will have a json obj as param
