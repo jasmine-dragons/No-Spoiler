@@ -5,9 +5,30 @@ import './style.less';
 import Comment from '../../components/Comment';
 import LargePost from '../../components/LargePost';
 import Post from '../../components/Post';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 function Home() {
+    const [comment, setComment] = useState("");
+    const [username, setUsername] = useState("");
+
+    const checkSubmission = (e) => {
+        if (e.key === 'Enter') {
+            fetch('https://localhost/5000/comment', {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: username,
+                    comment: comment
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data));
+        }
+    }
+
     return (
         <div className="App">
         <header className="App-header">
@@ -36,7 +57,7 @@ function Home() {
                         <Comment username="sqirley" comment="that movie was cool"/>
                     </div>
                     <div className="message">
-                        <input type="text" placeholder="Comment Here" />
+                        <input type="text" placeholder="Comment Here" value={comment} onChange={e => setComment(e.target.value)} onKeyDown={checkSubmission} />
                     </div>
                 </div>
             </div>
