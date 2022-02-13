@@ -16,8 +16,16 @@ client = MongoClient('mongodb+srv://user:christopher@cluster0.4oqji.mongodb.net/
 
 db = client.user_inputs
 
+@app.route('/posts', methods=['GET'])
+def posts():
+    """
+    Returns list of all posts in the database.
+    """
+    # print(db.posts.find({}))
+    return dumps(list(db.posts.find({})))
+
 # will have a json obj as param
-@app.route('/create')
+@app.route('/post', methods=['POST'])
 def create_post(data):
     '''
     create_post(data)
@@ -30,18 +38,36 @@ def create_post(data):
     return db.posts.insert_one(post_doc)
     # return "post created"
 
-# will have a json obj as param
-@app.route('/comment', methods=['POST'])
-def comment_post():
-    data = request.get_json()
+@app.route('/post/<uuid: post>/comment', methods=['POST'])
+def create_comment(post, data):
+    curr_post = db.posts.find(post)
+
     val = spoiler_value(data.get("content"))
-    spoil = False
-    if val >= 0.3:
-        spoil = True
-    comment_doc = {'username' : data.get("username"), 'content' : data.get("content"), 'spoiler' : spoil}
-    result = db.comments.insert_one(comment_doc)
-    return str(result.inserted_id)
-    # return "comment created"
+    spoil = True if val >= 0.3 else False
+
+    comment_doc = {
+        'username': data.get("username"),
+        'content': data.get("content"),
+        'spoiler': spoil
+    }
+
+    curr_post.comments.appent(comment_doc)
+
+    return db.posts.update(curr_post)
+
+
+# # will have a json obj as param
+# @app.route('/comment', methods=['POST'])
+# def comment_post():
+#     data = request.get_json()
+#     val = spoiler_value(data.get("content"))
+#     spoil = False
+#     if val >= 0.3:
+#         spoil = True
+#     comment_doc = {'username' : data.get("username"), 'content' : data.get("content"), 'spoiler' : spoil}
+#     result = db.comments.insert_one(comment_doc)
+#     return str(result.inserted_id)
+#     # return "comment created"
 
 # will have a json obj as param
 @app.route('/test')
@@ -55,13 +81,7 @@ def test_spoil():
     # return "post created"
 
 
-@app.route('/getposts')
-def getposts():
-    """
-    Returns list of all posts in the database.
-    """
-    # print(db.posts.find({}))
-    return dumps(list(db.posts.find({})))
+
 
 @app.route('/signin')
 def signin():
