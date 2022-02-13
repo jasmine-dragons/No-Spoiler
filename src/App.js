@@ -1,11 +1,11 @@
 import './App.css';
 import Home from './pages/Home';
 import CreatePost from './pages/CreatePost';
+import SignIn from './pages/SignIn';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -39,6 +39,9 @@ function App() {
           </Route>
           <Route path="/create-post">
             <CreatePost />
+          </Route>
+          <Route path="/signin">
+            <SignIn />
           </Route>
         </Switch>
       </div>

@@ -39,7 +39,7 @@ function Home() {
         <div className="App">
         <header className="App-header">
             <img src={logo} alt="logo"/>
-            <p>Logout</p>
+            <p onClick={() => {window.location.href = "/signin"}}>Logout</p>
         </header>
             <div className="App-body">
                 <div className="App-left">

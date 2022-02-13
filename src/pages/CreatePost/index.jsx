@@ -29,7 +29,7 @@ const CreatePost = () => {
 		<div className="CreatePost">
 			<header className="CreatePost-header">
 				<img src={logo} alt="logo"/>
-				<p>Logout</p>
+				<p onClick={() => {window.location.href = "/signin"}}>Logout</p>
 			</header>
 			<div className="CreatePost-body">
 				<div className="post">
