@@ -5,12 +5,12 @@ import './style.less';
 import Comment from '../../components/Comment';
 import LargePost from '../../components/LargePost';
 import Post from '../../components/Post';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { API_URL } from '../../config';
 
 function Home() {
     const [comment, setComment] = useState("");
-    const [postList, setPostList] = useState(null);
+    const [postList, setPostList] = useState([]);
     const [selectedPost, setSelectedPost] = useState(null);
 
     const checkSubmission = (e) => {
@@ -31,9 +31,11 @@ function Home() {
         }
     }
 
-    fetch(API_URL + '/getposts')
-    .then(response => response.json())
-    .then(data => setPostList(data));
+    useEffect(() => {
+        fetch(API_URL + '/getposts')
+        .then(response => response.json())
+        .then(data => {console.log(data); setPostList(data)});
+    }, []);
 
     return (
         <div className="App">
@@ -53,15 +55,17 @@ function Home() {
                             Create Post
                         </div>
                     </div>
-                    {postList && postList
-                    .map((post, index) => (
+                    {postList.length !== 0 && postList.map((post, index) => {
+
+                        console.log(post);
+                        return (
                     <Post
                         username={post.author}
                         title={post.title}
                         onClick={() => {setSelectedPost(post)}}
                         selected={post.uuid === selectedPost.uuid}
                     />
-                    ))}
+                    )})}
                 </div>
                 {selectedPost && <div className="App-right">
                     <div className="post-comment-div">

@@ -5,6 +5,7 @@ from flask import current_app, g
 from werkzeug.local import LocalProxy
 # from flask_pymongo import PyMongo
 from pymongo import MongoClient
+from bson.json_util import dumps
 app = Flask(__name__)
 
 CORS(app)
@@ -57,7 +58,7 @@ def getposts():
     Returns list of all posts in the database.
     """
     # print(db.posts.find({}))
-    return str(list(db.posts.find({})))
+    return dumps(list(db.posts.find({})))
 
 @app.route('/signin')
 def signin():
