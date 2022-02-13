@@ -10,6 +10,8 @@ import {useState} from 'react';
 function Home() {
     const [comment, setComment] = useState("");
     const [username, setUsername] = useState("");
+    const [postList, setPostList] = useState(null);
+    const [selectedPost, setSelectedPost] = useState(null);
 
     const checkSubmission = (e) => {
         if (e.key === 'Enter') {
@@ -29,18 +31,9 @@ function Home() {
         }
     }
 
-    fetch('https://localhost/5000', {
-        method: "GET",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            
-        })
-    })
+    fetch('https://localhost/5000')
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => setPostList(data));
 
     return (
         <div className="App">
@@ -62,17 +55,30 @@ function Home() {
                     </div>
                     <Post username="Rinsworth" title="Your Name"/>
                     <Post username="sqirley" title="Haikyuu"/>
+                    {postList
+                    .map((post, index) => (
+                    <Post
+                        username={post.username}
+                        title={post.title}
+                        onClick={() => {setSelectedPost(post)}}
+                        selected={post.uuid === selectedPost.uuid}
+                    />
+                    ))}
                 </div>
-                <div className="App-right">
+                {selectedPost && <div className="App-right">
                     <div className="post-comment-div">
-                        <LargePost username="Rinsworth" title="Your Name" body="I liked Your Name" />
+                        <LargePost username={username} title={selectedPost.title} body={selectedPost.content} spoiler={selectedPost.isSpoiler}/>
                         <div className="blank"></div>
-                        <Comment username="sqirley" comment="that movie was cool"/>
+                        {/* <Comment username="sqirley" comment="that movie was cool"/> */}
+                        {selectedPost.comments.map((comment, index) => (
+                            <Comment username={comment.username} comment={comment.content} spoiler={comment.isSpoiler}/>
+                        ))}
                     </div>
                     <div className="message">
                         <input type="text" placeholder="Comment Here" value={comment} onChange={e => setComment(e.target.value)} onKeyDown={checkSubmission} />
                     </div>
-                </div>
+                </div>}
+                {!selectedPost && <div className="App-right"></div>}
             </div>
         </div>
     );
